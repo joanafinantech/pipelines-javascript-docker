@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: pipelinetest 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pipelinetest
+  template:
+    metadata:
+      labels:
+        app: pipelinetest 
+    spec:
+      containers:
+        - name: pipelinetest 
+          image: finantechtestregistry.azurecr.io/pipelinetest
+          ports:
+          - containerPort: 8080
